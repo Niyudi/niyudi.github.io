@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "MAC0470 - Tutorial 4"
+date:   2026-03-23
+categories: mac0470
+---
+
+This weeks tutorial mostly explained the anatomy of a driver.
+
+The most interesting part was seeing how actual kernel code looks. There's a lot of static functions and variables, which makes sense to mantain scopes restricted when handling thousands of object files. It is very different from other C programming I have experienced.

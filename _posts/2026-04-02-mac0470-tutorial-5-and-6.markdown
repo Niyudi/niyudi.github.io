@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "MAC0470 - Tutorial 5 and 6"
+date:   2026-04-02
+categories: mac0470
+---
+
+This tutorial simply configured the email for sending patches. Again, there weren't any complications.
+
+It was interesting to see the structure of a patch and how it clearly informs (or is informed by) git diffs. There's a lot of formality, but it seems unavoidable with the size of the project. The sheer amount of patches in patchworks was also impressive to me.

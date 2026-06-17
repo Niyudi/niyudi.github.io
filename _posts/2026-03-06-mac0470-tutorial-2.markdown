@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "MAC0470 - Tutorial 2"
+date:   2026-03-06
+categories: mac0470
+---
+
+The second tutorial was a bit longer. Build times were quite long, but in general the process went smoothly. There isn't much to comment, as everything in the guide worked as expected on my machine.
+
+One funny hang-up is that for some reason my virtual machine was booting to grub, the custom name didn't show and I couldn't figure out why. Turns out when I commented out the old boot options, I split the command and simply ignored many of the flags, including the no graphics option.

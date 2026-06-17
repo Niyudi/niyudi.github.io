@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "MAC0470 - Tutorial 1"
+date:   2026-02-26
+categories: mac0470
+---
+
+The first tutorial went quite smoothly. I already had Pop!_OS installed in my machine and familiarity with Linux, so the instalation of QEMU and libvirt was easy enough.
+
+The only hang-up was that the Debian image of the tutorial wasn't available. To fix it we simply looked for another, more recent build of Debian to install.
+
+I also started a cheatsheet with the commands that seemed useful to remember:
+
+{% highlight text %}
+Create new VM (function in "activate.sh"):
+create_vm_virsh
+
+Dettatch VM:
+Press "Ctrl+]"
+
+List all VMs:
+sudo virsh list --all
+
+Attatch console of VM with name "foo":
+sudo virsh console foo
+
+Show information about VM with name "foo":
+sudo virsh dominfo foo
+
+Start previously created VM with name "foo"
+sudo virsh start --console foo
+
+Shutdown VM with name "foo":
+sudo virsh shutdown foo
+
+Force shutdown VM with name "foo":
+sudo virsh destroy foo
+
+Remove VM with name "foo":
+sudo virsh undefine --nvram foo
+
+Find VM IP address:
+sudo virsh net-dhcp-leases default
+
+Connect to VM with IP "x.x.x.x" through ssh:
+ssh root@x.x.x.x
+
+Disconnect ssh:
+exit
+{% endhighlight text %}

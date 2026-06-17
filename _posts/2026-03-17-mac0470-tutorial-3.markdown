@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "MAC0470 - Tutorial 3"
+date:   2026-03-17
+categories: mac0470
+---
+
+This tutorial was the first one that introduced me to the Linux kernel build system. It's very complex and interesting, but given the size of the project and compilation times the high modularity seems like a clear necessicity. The tutorial itself went smoothly as well.
