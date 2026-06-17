@@ -19,7 +19,22 @@ For example, the struct *FalconUCodeDescV3* has the implementation:
 unsafe impl FromBytes for FalconUCodeDescV3 {}
 {% endhighlight %}
 
-And it is used in *vbios.rs* as:
+*zerocopy*'s version of *FromBytes* can only be implemented by dervie, for safety reasons. Since it is already in *kernel::prelide::\**, all we have to do is derive it and remove this implementation:
+
+{% highlight rust %}
+#[repr(C)]
+- #[derive(Debug, Clone)]
++ #[derive(Debug, Clone, FromBytes)]
+pub(crate) struct FalconUCodeDescV3 {
+    ...
+}
+
+...
+
+- unsafe impl FromBytes for FalconUCodeDescV3 {}
+{% endhighlight %}
+
+This struct is is used in *vbios.rs* as:
 
 {% highlight rust %}
 let v3 = FalconUCodeDescV3::from_bytes_copy_prefix(data)
@@ -27,4 +42,10 @@ let v3 = FalconUCodeDescV3::from_bytes_copy_prefix(data)
     .0;
 {% endhighlight %}
 
-This function does not exist as is in *zerocopy*, but there's an equivalent *read_from_prefix*.
+This function does not exist as is in *zerocopy*, but there's an equivalent *read_from_prefix*. The change is then:
+
+{% highlight rust %}
+let v3 = FalconUCodeDescV3::read_from_prefix(data)
+    .map_err(|_| EINVAL)?
+    .0;
+{% endhighlight %}
