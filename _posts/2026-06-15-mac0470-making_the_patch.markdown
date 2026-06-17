@@ -49,3 +49,5 @@ let v3 = FalconUCodeDescV3::read_from_prefix(data)
     .map_err(|_| EINVAL)?
     .0;
 {% endhighlight %}
+
+This can be done similarly with other structs in the file.
